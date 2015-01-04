@@ -34,7 +34,7 @@ ButtonMixin =
   getDisabled: ->
     @._booleanToString @.props.disabled, 'disabled'
 
-  _booleanToString: (expression, value) -> expression ? value : ''
+  _booleanToString: (expression, value) -> if expression then value else ''
 
   joinClasses: ->
     joinClasses @.props.className, @.getSize(), @.getRadius(),

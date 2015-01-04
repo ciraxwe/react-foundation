@@ -25,7 +25,7 @@ gulp.task 'serve', ['webpack'], ->
     logPrefix: 'VC'
     server: ['build', 'foundation']
 
-  gulp.watch ['src/**/*.{jsx,js}'], ['webpack', reload]
+  gulp.watch ['src/**/*.{jsx,js,coffee}'], ['webpack', reload]
   gulp.watch ['foundation/index.html'], reload
 
 # Clean
