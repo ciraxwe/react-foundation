@@ -29,7 +29,7 @@ module.exports =
 
   module:
     loaders: [
-      { test: /\.coffee$/, loader: "coffee" },
+      { test: /\.coffee$/, loader: 'coffee' },
       { test: /\.js$/,  loader: 'jsx' },
-      { test: /\.jsx$/, loader: 'jsx?insertPragma=React.DOM }
+      { test: /\.jsx$/, loader: 'jsx?insertPragma=React.DOM' }
     ]
