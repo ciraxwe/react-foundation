@@ -14,18 +14,29 @@
  * limitations under the License.
  */
 var Button = require('./Button.jsx');
-var LinkButton = require('./LinkButton.jsx');
+var ButtonLink = require('./ButtonLink.jsx');
+var Row = require('./Row.jsx');
+var Col = require('./Col.jsx');
 
 // React Buttons
 React.render(
   <p>
-    <LinkButton role="button" size='small'>Simple button</LinkButton><br/>
-    <LinkButton size='small' radius>Radius button</LinkButton><br/>
-    <LinkButton size='small' round>Round button</LinkButton><br/>
-    <LinkButton size='medium' btnStyle='success'>Success Btn</LinkButton><br/>
-    <LinkButton size='medium' btnStyle='alert'>Alert Btn</LinkButton><br/>
-    <LinkButton size='medium' btnStyle='secondary'>Secondary Btn</LinkButton>
-    <LinkButton size='medium' disabled>Disabled Btn</LinkButton>
+    <ButtonLink role="button" size='small'>Simple button</ButtonLink><br/>
+    <ButtonLink size='small' radius>Radius button</ButtonLink><br/>
+    <ButtonLink size='small' round>Round button</ButtonLink><br/>
+    <ButtonLink size='medium' btnStyle='success'>Success Btn</ButtonLink><br/>
+    <ButtonLink size='medium' btnStyle='alert'>Alert Btn</ButtonLink><br/>
+    <ButtonLink size='medium' btnStyle='secondary'>Secondary Btn</ButtonLink>
+    <ButtonLink size='medium' disabled>Disabled Btn</ButtonLink>
   </p>,
   document.getElementById('react-buttons')
+);
+
+React.render(
+  <Row>
+    <Col large={12} medium={12} small={12}>
+      <h1>Welcome to Foundation</h1>
+    </Col>
+  </Row>,
+  document.getElementById('row-welcome-foundation')
 );

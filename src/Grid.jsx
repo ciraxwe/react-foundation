@@ -14,31 +14,16 @@
  * limitations under the License.
  */
 
-var ButtonMixin = require('./ButtonMixin.coffee');
-var DisableMixin = require('./DisableMixin.coffee');
 var joinClasses = require('./utils/joinClasses');
 
-var LinkButton = React.createClass({
-  mixins: [ButtonMixin, DisableMixin],
-
-  getDefaultProps: function () {
-    return {
-      href: '#',
-      size: 'medium'
-    };
-  },
-
-  render: function () {
+var Grid = React.createClass({
+    render: function () {
     return (
-      <a {...this.props}
-        href={this.props.href}
-        className={joinClasses(this.props.className, this.getSize(),
-          this.getRadius(), this.getRound(), this.getStyle(),
-          this.getDisabled(), 'button')}>
+      <div {...this.props}>
         {this.props.children}
-      </a>
+      </div>
     );
   }
 });
 
-module.exports = LinkButton;
+module.exports = Grid;

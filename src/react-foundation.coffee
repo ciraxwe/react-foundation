@@ -15,6 +15,6 @@
 #
 
 require './Button.jsx'
-require './LinkButton.jsx'
+require './ButtonLink.jsx'
 
 require './demo.jsx'
