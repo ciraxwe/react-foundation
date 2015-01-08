@@ -32,7 +32,7 @@ var Button = React.createClass({
         type={this.props.type}
         className={joinClasses(this.props.className, this.getSize(),
           this.getRadius(), this.getRound(), this.getStyle(),
-          this.getDisabled(), 'button')}>
+          this.getDisabled(), this.getExpand(), 'button')}>
         {this.props.children}
       </button>
     );

@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-var Grid = React.createClass({
-    render: function () {
+var DropdownItem = React.createClass({
+  propTypes: {
+    href: React.PropTypes.string
+  },
+
+  render : function () {
     return (
-      <div {...this.props}>
-        {this.props.children}
-      </div>
+        <li {...this.props}><a>{this.props.children}</a></li>
     );
   }
 });
 
-module.exports = Grid;
+module.exports = DropdownItem;

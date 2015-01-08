@@ -14,31 +14,41 @@
  * limitations under the License.
  */
 
+var _ = require('underscore');
 var ButtonMixin = require('./ButtonMixin.coffee');
 var DisableMixin = require('./DisableMixin.coffee');
+var Button = require('./Button.jsx');
 var joinClasses = require('./utils/joinClasses');
 
-var ButtonLink = React.createClass({
+var DropdownButton = React.createClass({
   mixins: [ButtonMixin, DisableMixin],
 
-  getDefaultProps: function () {
-    return {
-      href: '#',
-      size: 'medium'
-    };
+  propTypes: {
+    title: React.PropTypes.string
   },
 
   render: function () {
+    var items = React.Children.map(this.props.children, function (button) {
+      return (
+        <li>{button}</li>
+      );
+    });
+
+    var id = _.uniqueId('dropdown-');
+
     return (
-      <a {...this.props}
-        href={this.props.href}
-        className={joinClasses(this.props.className, this.getSize(),
-          this.getRadius(), this.getRound(), this.getStyle(),
-          this.getDisabled(), this.getExpand(), 'button')}>
-        {this.props.children}
-      </a>
+      <div>
+        <Button data-dropdown={id} aria-controls={id}
+          aria-expanded="false" className="dropdown">
+          {this.props.title}
+        </Button>
+        <br/>
+        <ul id={id} data-dropdown-content className="f-dropdown" aria-hidden="true" tabIndex="-1">
+          {this.props.children}
+        </ul>
+      </div>
     );
   }
 });
 
-module.exports = ButtonLink;
+module.exports = DropdownButton;

@@ -14,14 +14,30 @@
  * limitations under the License.
  */
 
-var Grid = React.createClass({
-    render: function () {
+var _ = require('underscore');
+var joinClasses = require('./utils/joinClasses');
+
+var Panel = React.createClass({
+  propTypes: {
+    callout: React.PropTypes.bool,
+    radius: React.PropTypes.bool,
+    round: React.PropTypes.bool
+  },
+
+  render: function () {
+    var other = _.omit(this.props, 'callout', 'radius', 'round');
+
     return (
-      <div {...this.props}>
+      <div {...other}
+        className={joinClasses(this.props.className,
+          this.props.radius ? 'radius' : '',
+          this.props.callout ? 'callout' : '',
+          this.props.round ? 'round' : '',
+          'panel')}>
         {this.props.children}
       </div>
     );
   }
 });
 
-module.exports = Grid;
+module.exports = Panel;

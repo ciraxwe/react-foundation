@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-var Grid = React.createClass({
+var joinClasses = require('./utils/joinClasses');
+
+var ButtonToolBar = React.createClass({
     render: function () {
     return (
-      <div {...this.props}>
+      <div {...this.props}
+        className={joinClasses(this.props.className, 'button-bar')}>
         {this.props.children}
       </div>
     );
   }
 });
 
-module.exports = Grid;
+module.exports = ButtonToolBar;

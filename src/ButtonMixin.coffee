@@ -33,6 +33,7 @@ STYLES =
 ButtonMixin =
   propTypes:
     btnStyle: React.PropTypes.oneOf Object.keys STYLES
+    expand: React.PropTypes.bool
     radius: React.PropTypes.bool
     round:  React.PropTypes.bool
     size:   React.PropTypes.oneOf Object.keys SIZES
@@ -42,6 +43,8 @@ ButtonMixin =
   getRadius: -> @._booleanToString @.props.radius, 'radius'
 
   getRound: -> @._booleanToString @.props.round, 'round'
+
+  getExpand: -> @._booleanToString @.props.expand, 'expand'
 
   getStyle: -> STYLES[@.props.btnStyle]
 
